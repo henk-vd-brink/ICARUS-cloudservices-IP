@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  zeus-auth-webserver:
+    image: prominendt/zeus-dev:amd64-auth-webserver
+    container_name: zeus-auth-webserver
+    ports:
+      - 8000:8000
+    environment:
+      - PSQL_DB_NAME=postgres
+      - PSQL_DB_USER=postgres
+      - PSQL_DB_PASSWORD=postgres
+      - PSQL_DB_HOST=zeus-auth-storage
+    entrypoint: ["./scripts/start.dev.sh"]
+    depends_on: 
+      - zeus-auth-storage
+
+  
+  zeus-auth-storage:
+    image: prominendt/zeus-dev:amd64-auth-storage
+    container_name: zeus-auth-storage
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   ports:
+  #     - 5555:80
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #   depends_on:
+  #     - zeus-auth-storage

@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  zeus-auth-webserver:
+    build:
+      context: zeus-auth-webserver
+      dockerfile: Dockerfile
+    image: prominendt/zeus-dev:amd64-auth-webserver
+  
+  zeus-auth-storage:
+    build:
+      context: zeus-auth-storage
+      dockerfile: Dockerfile
+    image: prominendt/zeus-dev:amd64-auth-storage
