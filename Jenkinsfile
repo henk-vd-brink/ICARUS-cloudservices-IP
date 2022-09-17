@@ -5,7 +5,7 @@ def CONTAINER_REGISTRY="test"
 
 pipeline {
   agent {
-    label "built-in node"
+    label "master"
   }
   stages {
     stage('Prepare') {
