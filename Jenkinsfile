@@ -3,9 +3,6 @@ def BUILD_VERSION = VERSION
 def isRelease = false
 
 pipeline {
-  agent {
-    label "any"
-  }
   stages {
     stage('Prepare') {
       steps {
