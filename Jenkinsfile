@@ -5,7 +5,9 @@ def CONTAINER_REGISTRY="test"
 
 pipeline {
   agent {
-    label "master"
+    kubernetes {
+      defaultContainer 'jnlp'
+    }
   }
   stages {
     stage('Prepare') {
