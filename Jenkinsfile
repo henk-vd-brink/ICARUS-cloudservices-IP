@@ -31,14 +31,14 @@ pipeline {
         }
       }
     }
-    stage('Build zeus-auth-webserver') { 
-      steps { 
-        script{
-          dir("zeus-auth-webserver") {
-            ah_ss_proxy = docker.build("${CONTAINER_REGISTRY}/zeus-auth-webserver")
-          }
-        } 
-      }
-    }
+    // stage('Build zeus-auth-webserver') { 
+    //   steps { 
+    //     script{
+    //       dir("zeus-auth-webserver") {
+    //         ah_ss_proxy = docker.build("${CONTAINER_REGISTRY}/zeus-auth-webserver")
+    //       }
+    //     } 
+    //   }
+    // }
   }
 }
