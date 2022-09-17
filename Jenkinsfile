@@ -35,7 +35,9 @@ pipeline {
       steps { 
         script{
           dir("zeus-auth-webserver") {
-            "docker build -t test ."
+            bash """
+            docker build -t test .
+            """        
           }
         } 
       }
