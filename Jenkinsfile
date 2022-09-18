@@ -4,9 +4,7 @@ def isRelease = false
 def CONTAINER_REGISTRY="test"
 
 pipeline {
-  agent {
-    label "master"
-  }
+  agent any
   stages {
     stage('Prepare') {
       steps {
