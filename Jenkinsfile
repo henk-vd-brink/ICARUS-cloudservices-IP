@@ -1,7 +1,6 @@
 def VERSION = "${BRANCH_NAME}"
 def BUILD_VERSION = VERSION
 def isRelease = false
-def CONTAINER_REGISTRY="test"
 
 pipeline {
   agent any
@@ -38,6 +37,5 @@ pipeline {
         } 
       }
     }
-
   }
 }
