@@ -35,12 +35,11 @@ pipeline {
       steps { 
         script{
           dir("zeus-auth-webserver") {
-            bash """
-            docker build -t test .
-            """        
+            ah_ss_proxy = docker.build("zeus-auth-webserver")
           }
         } 
       }
     }
+
   }
 }
