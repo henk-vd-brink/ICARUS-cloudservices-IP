@@ -26,12 +26,12 @@ services:
       - POSTGRES_PASSWORD=postgres
 
 
-  # pgadmin:
-  #   image: dpage/pgadmin4
-  #   ports:
-  #     - 5555:80
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
-  #     PGADMIN_DEFAULT_PASSWORD: admin
-  #   depends_on:
-  #     - zeus-auth-storage
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 5555:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - zeus-auth-storage
