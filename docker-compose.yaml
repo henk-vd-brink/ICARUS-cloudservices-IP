@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   icarus-auth-webserver:
-    image: cricarusprod001.azurecr.io:icarus-auth-webserver
+    image: cricarusprod001.azurecr.io/icarus-auth-webserver
     container_name: icarus-auth-webserver
     ports:
       - 8000:8000
@@ -17,7 +17,7 @@ services:
 
   
   icarus-auth-storage:
-    image: cricarusprod001.azurecr.io:icarus-auth-storage
+    image: cricarusprod001.azurecr.io/icarus-auth-storage
     container_name: icarus-auth-storage
     ports:
       - 5432:5432

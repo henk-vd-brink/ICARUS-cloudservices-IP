@@ -1,14 +1,14 @@
 version: "3.8"
 
 services:
-  zeus-auth-webserver:
+  icarus-auth-webserver:
     build:
-      context: zeus-auth-webserver
+      context: icarus-auth-webserver
       dockerfile: Dockerfile
-    image: prominendt/zeus-dev:amd64-auth-webserver
-  
-  zeus-auth-storage:
+    image: cricarusprod001.azurecr.io/icarus-dev:amd64-auth-webserver
+
+  icarus-auth-storage:
     build:
-      context: zeus-auth-storage
+      context: icarus-auth-storage
       dockerfile: Dockerfile
-    image: prominendt/zeus-dev:amd64-auth-storage
+    image: cricarusprod001.azurecr.io/icarus-dev:amd64-auth-storage
