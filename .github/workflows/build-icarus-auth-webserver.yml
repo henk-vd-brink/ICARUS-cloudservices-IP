@@ -8,6 +8,12 @@ on:
 
 jobs:
   build:
+    environment: icarus
+    env: 
+      CRICARUSPROD001_USERNAME: ${{ secrets.CRICARUSPROD001_USERNAME }}
+      CRICARUSPROD001_ACCESS_TOKEN: ${{ secrets.CRICARUSPROD001_ACCESS_TOKEN }}
+      CRICARUSPROD001_URL: ${{ secrets.CRICARUSPROD001_URL }}
+      
     runs-on: ubuntu-latest
     steps:
       -
@@ -18,8 +24,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: cricarusprod001.azurecr.io
-          username: ${{ secrets.CRICARUSPROD001_USERNAME }}
-          password: ${{ secrets.CRICARUSPROD001_ACCESS_TOKEN }}
+          username: ${{ env.CRICARUSPROD001_USERNAME }}
+          password: ${{ env.CRICARUSPROD001_ACCESS_TOKEN }}
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -30,4 +36,4 @@ jobs:
           context: icarus-auth-webserver
           file: Dockerfile
           push: true
-          tags: ${{ secrets.CRICARUSPROD001_URL }}/icarus-auth-webserver:latest
+          tags: ${{ env.CRICARUSPROD001_URL }}/icarus-auth-webserver:latest
