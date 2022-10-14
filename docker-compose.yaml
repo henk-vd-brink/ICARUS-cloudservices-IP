@@ -6,7 +6,10 @@ services:
     container_name: icarus-auth-webserver
     ports:
       - 8000:8000
+    volumes:
+      - django-static:/home/docker_user/src/static/
     environment:
+      - SECRET_KEY='django-insecure-at^*_1^q2^0kg#g!r_o-^g*k-qq5xsi^#)%hlnp4g=%#ugoonp'
       - PSQL_DB_NAME=${PSQL_DB_NAME}
       - PSQL_DB_USER=${PSQL_DB_USER}
       - PSQL_DB_PASSWORD=${PSQL_DB_PASSWORD}
@@ -28,9 +31,15 @@ services:
     image: cricarusprod001.azurecr.io/icarus-auth-proxy
     container_name: icarus-auth-proxy
     ports:
-      - 800:80
+      - 9000:80
+      - 9443:443
     volumes:
+      - django-static:/usr/src/app/static
       - ${CERTIFICATE_CERT_PATH}:/etc/ssl/certs/nginx.crt:ro
       - ${CERTIFICATE_KEY_PATH}:/etc/ssl/private/nginx.key:ro
     depends_on:
       - icarus-auth-webserver
+
+
+volumes:
+  django-static: null
