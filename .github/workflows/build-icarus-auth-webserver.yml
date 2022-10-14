@@ -33,7 +33,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: icarus-auth-webserver
+          context: "{{defaultContext}}:icarus-auth-webserver"
           file: Dockerfile
           push: true
           tags: ${{ env.CRICARUSPROD001_URL }}/icarus-auth-webserver:latest
