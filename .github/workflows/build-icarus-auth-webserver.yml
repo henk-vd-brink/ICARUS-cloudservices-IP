@@ -20,6 +20,11 @@ jobs:
         name: Checkout 
         uses: actions/checkout@v3
       - 
+        name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      -
         name: Login to Azure Container Registry
         uses: docker/login-action@v2
         with:
@@ -36,4 +41,4 @@ jobs:
           context: "{{defaultContext}}:icarus-auth-webserver"
           file: Dockerfile
           push: true
-          tags: ${{ env.CRICARUSPROD001_URL }}/icarus-auth-webserver:${{ github.sha }}
+          tags: ${{ env.CRICARUSPROD001_URL }}/icarus-auth-webserver:${{ steps.extract_branch.outputs.branch }}
