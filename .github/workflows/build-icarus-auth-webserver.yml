@@ -40,5 +40,4 @@ jobs:
           context: "{{defaultContext}}:icarus-auth-webserver"
           file: Dockerfile
           push: true
-          tags: ${{ env.CRICARUSPROD001_URL }}/icarus-auth-webserver:latest
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          tags: ${{ env.CRICARUSPROD001_URL }}/icarus-auth-webserver:${{ env.GITHUB_REF_NAME }}
