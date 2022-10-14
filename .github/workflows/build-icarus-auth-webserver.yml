@@ -34,11 +34,11 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          context: "{{defaultContext}}:icarus-auth-webserver"
-          file: Dockerfile
-          push: true
-          tags: ${{ env.CRICARUSPROD001_URL }}/icarus-auth-webserver:${{ GIT_TAG }}
+#       -
+#         name: Build and push
+#         uses: docker/build-push-action@v3
+#         with:
+#           context: "{{defaultContext}}:icarus-auth-webserver"
+#           file: Dockerfile
+#           push: true
+#           tags: ${{ env.CRICARUSPROD001_URL }}/icarus-auth-webserver:${{ GIT_TAG }}
