@@ -31,7 +31,7 @@ services:
     image: cricarusprod001.azurecr.io/icarus-auth-proxy
     container_name: icarus-auth-proxy
     ports:
-      - 9000:80
+      - 9080:80
       - 9443:443
     volumes:
       - django-static:/usr/src/app/static
