@@ -7,31 +7,30 @@ services:
     ports:
       - 8000:8000
     environment:
-      - PSQL_DB_NAME=postgres
-      - PSQL_DB_USER=postgres
-      - PSQL_DB_PASSWORD=postgres
+      - PSQL_DB_NAME=${PSQL_DB_NAME}
+      - PSQL_DB_USER=${PSQL_DB_USER}
+      - PSQL_DB_PASSWORD=${PSQL_DB_PASSWORD}
       - PSQL_DB_HOST=icarus-auth-storage
     entrypoint: ["./scripts/start.dev.sh"]
     depends_on: 
       - icarus-auth-storage
 
-  
   icarus-auth-storage:
     image: cricarusprod001.azurecr.io/icarus-auth-storage
     container_name: icarus-auth-storage
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=${PSQL_DB_USER}
+      - POSTGRES_PASSWORD=${PSQL_DB_PASSWORD}
 
-
-  pgadmin:
-    image: dpage/pgadmin4
+  icarus-auth-proxy:
+    image: cricarusprod001.azurecr.io/icarus-auth-proxy
+    container_name: icarus-auth-proxy
     ports:
-      - 5555:80
-    environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
-      PGADMIN_DEFAULT_PASSWORD: admin
+      - 800:80
+    volumes:
+      - ${CERTIFICATE_CERT_PATH}:/etc/ssl/certs/nginx.crt:ro
+      - ${CERTIFICATE_KEY_PATH}:/etc/ssl/private/nginx.key:ro
     depends_on:
-      - icarus-auth-storage
+      - icarus-auth-webserver

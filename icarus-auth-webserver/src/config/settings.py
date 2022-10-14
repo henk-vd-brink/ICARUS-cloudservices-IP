@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-doln4$eel0b0&sfa)-i#qx0fn4((0w%0$=2@141%g$veyaof7"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "oauth2_provider"
+    "oauth2_provider",
 ]
 
 MIDDLEWARE = [
@@ -64,12 +64,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("PSQL_DB_NAME"),
-        'USER': os.environ.get("PSQL_DB_USER"),
-        'PASSWORD': os.environ.get("PSQL_DB_PASSWORD"),
-        'HOST': os.environ.get("PSQL_DB_HOST"),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.environ.get("PSQL_DB_NAME"),
+        "USER": os.environ.get("PSQL_DB_USER"),
+        "PASSWORD": os.environ.get("PSQL_DB_PASSWORD"),
+        "HOST": os.environ.get("PSQL_DB_HOST"),
     }
 }
 
@@ -108,7 +108,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type

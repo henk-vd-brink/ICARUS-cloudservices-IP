@@ -5,10 +5,16 @@ services:
     build:
       context: icarus-auth-webserver
       dockerfile: Dockerfile
-    image: cricarusprod001.azurecr.io/icarus-dev:amd64-auth-webserver
+    image: cricarusprod001.azurecr.io/icarus-auth-webserver
 
   icarus-auth-storage:
     build:
       context: icarus-auth-storage
       dockerfile: Dockerfile
-    image: cricarusprod001.azurecr.io/icarus-dev:amd64-auth-storage
+    image: cricarusprod001.azurecr.io/icarus-auth-storage
+
+  icarus-auth-proxy:
+    build:
+      context: icarus-auth-proxy
+      dockerfile: Dockerfile
+    image: cricarusprod001.azurecr.io/icarus-auth-proxy
