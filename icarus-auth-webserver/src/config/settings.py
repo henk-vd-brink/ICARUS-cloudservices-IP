@@ -15,6 +15,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True if os.environ.get("DEBUG", "false").lower() == "true" else False
 
 ALLOWED_HOSTS = ["localhost", "app-icarus-prod-westeu-001.azurewebsites.net"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.azurewebsites.net",
+    "https://*.127.0.0.1",
+]
 
 
 # Application definition
