@@ -9,7 +9,7 @@ services:
     volumes:
       - django-static:/home/docker_user/src/static/
     environment:
-      - SECRET_KEY='django-insecure-at^*_1^q2^0kg#g!r_o-^g*k-qq5xsi^#)%hlnp4g=%#ugoonp'
+      - SECRET_KEY='dat^*_1^q2^0kewewfg#g!r_o-^g*k-qq5xsi^asdfda#)%hlnp4g=%#ugoonp'
       - PSQL_DB_NAME=${PSQL_DB_NAME}
       - PSQL_DB_USER=${PSQL_DB_USER}
       - PSQL_DB_PASSWORD=${PSQL_DB_PASSWORD}
