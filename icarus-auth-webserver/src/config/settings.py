@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost"]
+ALLOWED_HOSTS = ["localhost", "app-icarus-prod-westeu-001.azurewebsites.net"]
 
 
 # Application definition
