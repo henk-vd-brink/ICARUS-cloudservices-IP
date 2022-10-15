@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 
+from numpy import False_
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -12,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True if os.environ.get("DEBUG", "false").lower() == "true" else False
 
 ALLOWED_HOSTS = ["localhost", "app-icarus-prod-westeu-001.azurewebsites.net"]
 
